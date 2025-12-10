@@ -2,15 +2,15 @@
 
 **Comprehensive toy implementations of the 30 foundational papers recommended by Ilya Sutskever**
 
-[![Implementations](https://img.shields.io/badge/Implementations-29%2F30-brightgreen)](https://github.com/pageman/sutskever-30-implementations)
-[![Coverage](https://img.shields.io/badge/Coverage-97%25-blue)](https://github.com/pageman/sutskever-30-implementations)
+[![Implementations](https://img.shields.io/badge/Implementations-30%2F30-brightgreen)](https://github.com/pageman/sutskever-30-implementations)
+[![Coverage](https://img.shields.io/badge/Coverage-100%25-blue)](https://github.com/pageman/sutskever-30-implementations)
 [![Python](https://img.shields.io/badge/Python-NumPy%20Only-yellow)](https://numpy.org/)
 
 ## Overview
 
 This repository contains detailed, educational implementations of the papers from Ilya Sutskever's famous reading list - the collection he told John Carmack would teach you "90% of what matters" in deep learning.
 
-**Progress: 29/30 papers (97%) implemented!**
+**Progress: 30/30 papers (100%) - COMPLETE! 🎉**
 
 Each implementation:
 - ✅ Uses only NumPy (no deep learning frameworks) for educational clarity
@@ -76,7 +76,7 @@ jupyter notebook 02_char_rnn_karpathy.ipynb
 | # | Paper | Notebook | Key Concepts |
 |---|-------|----------|--------------|
 | 23 | MDL Principle | ✅ `23_mdl_principle.ipynb` | Information theory, Model selection, Compression |
-| 24 | Machine Super Intelligence | N/A (Theoretical) | AGI, Intelligence metrics |
+| 24 | **Machine Super Intelligence** | ✅ `24_machine_super_intelligence.ipynb` | Universal AI, AIXI, Solomonoff induction, Intelligence measures, Self-improvement |
 | 25 | Kolmogorov Complexity | ✅ `25_kolmogorov_complexity.ipynb` | Compression, Algorithmic randomness, Universal prior |
 | 26 | **CS231n: CNNs for Visual Recognition** | ✅ `26_cs231n_cnn_fundamentals.ipynb` | Image classification pipeline, kNN/Linear/NN/CNN, Backprop, Optimization, Babysitting neural nets |
 | 27 | Multi-token Prediction | ✅ `27_multi_token_prediction.ipynb` | Multiple future tokens, Sample efficiency, 2-3x faster |
@@ -246,7 +246,20 @@ These implementations cover the most influential papers and demonstrate core dee
     - Occam's Razor formalized
     - Theoretical foundation for ML
 
-27. **`01_complexity_dynamics.ipynb`** - Complexity & Entropy
+27. **`24_machine_super_intelligence.ipynb`** - Universal Artificial Intelligence
+    - **Formal theory of intelligence (Legg & Hutter)**
+    - Psychometric g-factor and universal intelligence Υ(π)
+    - Solomonoff induction for sequence prediction
+    - AIXI: Theoretically optimal RL agent
+    - Monte Carlo AIXI (MC-AIXI) approximation
+    - Kolmogorov complexity estimation
+    - Intelligence measurement across environments
+    - Recursive self-improvement dynamics
+    - Intelligence explosion scenarios
+    - **6 sections: from psychometrics to superintelligence**
+    - Connects Papers #23 (MDL), #25 (Kolmogorov), #8 (DQN)
+
+28. **`01_complexity_dynamics.ipynb`** - Complexity & Entropy
     - Cellular automata (Rule 30)
     - Entropy growth
     - Irreversibility (basic introduction)
@@ -309,6 +322,7 @@ sutskever-30-implementations/
 ├── 21_ctc_speech.ipynb                # CTC loss
 ├── 22_scaling_laws.ipynb              # Empirical scaling
 ├── 23_mdl_principle.ipynb             # MDL & compression
+├── 24_machine_super_intelligence.ipynb # Universal AI & AIXI
 ├── 25_kolmogorov_complexity.ipynb     # K(x) & randomness
 ├── 26_cs231n_cnn_fundamentals.ipynb    # Vision from first principles
 ├── 27_multi_token_prediction.ipynb     # Multi-token prediction
@@ -317,7 +331,7 @@ sutskever-30-implementations/
 └── 30_lost_in_middle.ipynb            # Long context analysis
 ```
 
-**29 out of 30 papers implemented! (97% complete)**
+**All 30 papers implemented! (100% complete!) 🎉**
 
 ## Learning Path
 
@@ -473,7 +487,7 @@ Educational use. See individual papers for original research citations.
 
 ## Latest Additions (December 2025)
 
-### Recently Implemented (20 new papers!)
+### Recently Implemented (21 new papers!)
 - ✅ **Paper 4**: RNN Regularization (variational dropout)
 - ✅ **Paper 5**: Neural Network Pruning (MDL, 90%+ sparsity)
 - ✅ **Paper 7**: AlexNet (CNNs from scratch)
@@ -489,6 +503,7 @@ Educational use. See individual papers for original research citations.
 - ✅ **Paper 18**: Relational RNNs (relational memory + Section 11: manual backprop ~1100 lines)
 - ✅ **Paper 21**: Deep Speech 2 (CTC loss)
 - ✅ **Paper 23**: MDL Principle (compression, model selection, connects to Papers 5 & 25)
+- ✅ **Paper 24**: Machine Super Intelligence (Universal AI, AIXI, Solomonoff induction, intelligence measures, recursive self-improvement)
 - ✅ **Paper 25**: Kolmogorov Complexity (randomness, algorithmic probability, theoretical foundation)
 - ✅ **Paper 27**: Multi-Token Prediction (2-3x sample efficiency)
 - ✅ **Paper 28**: Dense Passage Retrieval (dual encoders)
