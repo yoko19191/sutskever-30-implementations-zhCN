@@ -1,99 +1,99 @@
-# Training Utilities - Paper 18: Relational RNN
+# 训练工具 (Training Utilities) - 论文 18：关系循环神经网络
 
-## Task P2-T3: Training Utilities and Loss Functions
+## 任务 P2-T3：训练工具和损失函数
 
-This module provides comprehensive training utilities for both LSTM and Relational RNN models using NumPy only.
+本模块为使用 NumPy 实现的 LSTM 和 Relational RNN 模型提供全面的训练工具。
 
-## Files
+## 文件
 
-- `training_utils.py` - Main utilities module with loss functions, training loops, and optimization helpers
-- `training_demo.py` - Comprehensive demonstrations of all training features
-- `TRAINING_UTILS_README.md` - This documentation
+- `training_utils.py` - 主工具模块，包含损失函数、训练循环和优化辅助函数
+- `training_demo.py` - 所有训练功能的全面演示
+- `TRAINING_UTILS_README.md` - 本文档
 
-## Features Implemented
+## 已实现的功能
 
-### 1. Loss Functions
+### 1. 损失函数
 
-#### Cross-Entropy Loss
+#### 交叉熵损失 (Cross-Entropy Loss)
 ```python
 loss = cross_entropy_loss(predictions, targets)
 ```
-- Supports both sparse (class indices) and one-hot encoded targets
-- Numerically stable implementation using log-sum-exp trick
-- Used for classification tasks
+- 支持稀疏（类别索引）和独热编码目标
+- 使用 log-sum-exp 技巧的数值稳定实现
+- 用于分类任务
 
-#### Mean Squared Error (MSE) Loss
+#### 均方误差 (MSE) 损失
 ```python
 loss = mse_loss(predictions, targets)
 ```
-- For regression tasks (object tracking, trajectory prediction)
-- Simple squared difference averaged over all elements
+- 用于回归任务（物体跟踪、轨迹预测）
+- 所有元素上平均的简单平方差
 
-#### Softmax Function
+#### Softmax 函数
 ```python
 probs = softmax(logits)
 ```
-- Numerically stable softmax implementation
-- Converts logits to probabilities
+- 数值稳定的 softmax 实现
+- 将 logits 转换为概率
 
-#### Accuracy Metric
+#### 准确率指标
 ```python
 acc = accuracy(predictions, targets)
 ```
-- Classification accuracy computation
-- Works with both sparse and one-hot targets
+- 分类准确率计算
+- 支持稀疏和独热目标
 
-### 2. Gradient Computation
+### 2. 梯度计算
 
-#### Numerical Gradient (Finite Differences)
+#### 数值梯度（有限差分）
 ```python
 gradients = compute_numerical_gradient(model, X_batch, y_batch, loss_fn)
 ```
-- Element-by-element finite difference approximation
-- Educational implementation (slow but correct)
-- Uses central difference: `df/dx ≈ (f(x + ε) - f(x - ε)) / (2ε)`
+- 逐元素有限差分近似
+- 教育性实现（慢但正确）
+- 使用中心差分：`df/dx ≈ (f(x + ε) - f(x - ε)) / (2ε)`
 
-#### Fast Numerical Gradient
+#### 快速数值梯度
 ```python
 gradients = compute_numerical_gradient_fast(model, X_batch, y_batch, loss_fn)
 ```
-- Vectorized gradient estimation (faster than element-wise)
-- Still slower than analytical gradients but more practical
-- Good for prototyping and testing
+- 向量化梯度估计（比逐元素更快）
+- 仍然比解析梯度慢，但更实用
+- 适合原型设计和测试
 
-**Note**: For production use, implement analytical gradients via backpropagation through time (BPTT).
+**注意**：对于生产使用，应通过时间反向传播（BPTT）实现解析梯度。
 
-### 3. Optimization Utilities
+### 3. 优化工具
 
-#### Gradient Clipping
+#### 梯度裁剪
 ```python
 clipped_grads, global_norm = clip_gradients(grads, max_norm=5.0)
 ```
-- Prevents exploding gradients (critical for RNN stability)
-- Clips by global norm across all parameters
-- Returns both clipped gradients and original norm for monitoring
+- 防止梯度爆炸（对 RNN 稳定性至关重要）
+- 按全局范数跨所有参数裁剪
+- 返回裁剪后的梯度和原始范数以供监控
 
-#### Learning Rate Schedule
+#### 学习率调度
 ```python
 lr = learning_rate_schedule(epoch, initial_lr=0.001, decay=0.95, decay_every=10)
 ```
-- Exponential decay schedule
-- Reduces learning rate over time for fine-tuning
-- Formula: `lr = initial_lr * (decay ^ (epoch // decay_every))`
+- 指数衰减调度
+- 随时间降低学习率以进行微调
+- 公式：`lr = initial_lr * (decay ^ (epoch // decay_every))`
 
-#### Early Stopping
+#### 早停
 ```python
 early_stopping = EarlyStopping(patience=10, min_delta=1e-4)
 should_stop = early_stopping(val_loss, model_params)
 best_params = early_stopping.get_best_params()
 ```
-- Prevents overfitting by monitoring validation loss
-- Saves best parameters automatically
-- Configurable patience (epochs to wait) and minimum improvement threshold
+- 通过监控验证损失防止过拟合
+- 自动保存最佳参数
+- 可配置的耐心值（等待的 epoch 数）和最小改进阈值
 
-### 4. Training Functions
+### 4. 训练函数
 
-#### Single Training Step
+#### 单步训练
 ```python
 loss, metric, grad_norm = train_step(
     model, X_batch, y_batch,
@@ -102,12 +102,12 @@ loss, metric, grad_norm = train_step(
     task='classification'
 )
 ```
-- Performs one gradient descent step
-- Computes gradients, clips them, and updates parameters
-- Returns loss, metric (accuracy or negative loss), and gradient norm
-- Supports both classification and regression tasks
+- 执行一步梯度下降
+- 计算梯度、裁剪它们并更新参数
+- 返回损失、指标（准确率或负损失）和梯度范数
+- 支持分类和回归任务
 
-#### Model Evaluation
+#### 模型评估
 ```python
 avg_loss, avg_metric = evaluate(
     model, X_test, y_test,
@@ -115,11 +115,11 @@ avg_loss, avg_metric = evaluate(
     batch_size=32
 )
 ```
-- Evaluates model without updating parameters
-- Processes data in batches (handles large datasets)
-- Returns average loss and metric
+- 评估模型而不更新参数
+- 按批次处理数据（处理大数据集）
+- 返回平均损失和指标
 
-#### Full Training Loop
+#### 完整训练循环
 ```python
 history = train_model(
     model,
@@ -137,50 +137,50 @@ history = train_model(
 )
 ```
 
-Features:
-- Automatic batching with optional shuffling
-- Learning rate decay
-- Gradient clipping
-- Early stopping with best model restoration
-- Progress tracking and verbose output
-- Returns comprehensive training history
+功能：
+- 自动批处理，可选洗牌
+- 学习率衰减
+- 梯度裁剪
+- 早停和最佳模型恢复
+- 进度跟踪和详细输出
+- 返回全面的训练历史
 
-History dictionary contains:
-- `train_loss`: Training loss per epoch
-- `train_metric`: Training metric per epoch
-- `val_loss`: Validation loss per epoch
-- `val_metric`: Validation metric per epoch
-- `learning_rates`: Learning rates used
-- `grad_norms`: Gradient norms (for monitoring stability)
+历史字典包含：
+- `train_loss`：每个 epoch 的训练损失
+- `train_metric`：每个 epoch 的训练指标
+- `val_loss`：每个 epoch 的验证损失
+- `val_metric`：每个 epoch 的验证指标
+- `learning_rates`：使用的学习率
+- `grad_norms`：梯度范数（用于监控稳定性）
 
-### 5. Visualization
+### 5. 可视化
 
-#### Plot Training Curves
+#### 绘制训练曲线
 ```python
 plot_training_curves(history, save_path='training_curves.png')
 ```
-- Creates 2x2 grid of plots:
-  - Loss over epochs (train & val)
-  - Metric over epochs (train & val)
-  - Learning rate schedule
-  - Gradient norms
-- Falls back to text output if matplotlib unavailable
+- 创建 2x2 网格图：
+  - 损失随 epoch 变化（训练和验证）
+  - 指标随 epoch 变化（训练和验证）
+  - 学习率调度
+  - 梯度范数
+- 如果 matplotlib 不可用则回退到文本输出
 
-## Usage Examples
+## 使用示例
 
-### Basic Training
+### 基础训练
 ```python
 from lstm_baseline import LSTM
 from training_utils import train_model, evaluate
 
-# Create model
+# 创建模型
 model = LSTM(input_size=10, hidden_size=32, output_size=3)
 
-# Prepare data
+# 准备数据
 X_train, y_train = ...  # (num_samples, seq_len, input_size)
 X_val, y_val = ...
 
-# Train
+# 训练
 history = train_model(
     model,
     train_data=(X_train, y_train),
@@ -191,12 +191,12 @@ history = train_model(
     task='classification'
 )
 
-# Evaluate
+# 评估
 test_loss, test_acc = evaluate(model, X_test, y_test)
-print(f"Test accuracy: {test_acc:.4f}")
+print(f"测试准确率: {test_acc:.4f}")
 ```
 
-### Custom Training Loop
+### 自定义训练循环
 ```python
 from training_utils import train_step, clip_gradients
 
@@ -207,132 +207,132 @@ for epoch in range(num_epochs):
             learning_rate=0.01,
             clip_norm=5.0
         )
-        print(f"Batch loss: {loss:.4f}, acc: {acc:.4f}")
+        print(f"批次损失: {loss:.4f}, 准确率: {acc:.4f}")
 ```
 
-### Regression Task
+### 回归任务
 ```python
-# For regression (e.g., object tracking)
+# 用于回归（例如，物体跟踪）
 history = train_model(
     model,
     train_data=(X_train, y_train),
     val_data=(X_val, y_val),
-    task='regression',  # Use MSE loss
+    task='regression',  # 使用 MSE 损失
     epochs=100
 )
 ```
 
-## Model Compatibility
+## 模型兼容性
 
-The training utilities work with any model that implements:
+训练工具可与任何实现以下接口的模型一起使用：
 
 ```python
 class YourModel:
     def forward(self, X, return_sequences=False):
         """
-        Args:
+        参数：
             X: (batch, seq_len, input_size)
             return_sequences: bool
-        Returns:
-            outputs: (batch, output_size) if return_sequences=False
-                    (batch, seq_len, output_size) if return_sequences=True
+        返回：
+            outputs: 如果 return_sequences=False 则为 (batch, output_size)
+                    如果 return_sequences=True 则为 (batch, seq_len, output_size)
         """
         pass
 
     def get_params(self):
-        """Return dict of parameter names to arrays"""
+        """返回参数名到数组的字典"""
         return {'W': self.W, 'b': self.b, ...}
 
     def set_params(self, params):
-        """Set parameters from dict"""
+        """从字典设置参数"""
         self.W = params['W']
         self.b = params['b']
 ```
 
-Compatible models:
-- LSTM (from `lstm_baseline.py`)
-- Relational RNN (to be implemented)
-- Any custom RNN architecture following the interface
+兼容的模型：
+- LSTM（来自 `lstm_baseline.py`）
+- Relational RNN（待实现）
+- 任何遵循该接口的自定义 RNN 架构
 
-## Test Results
+## 测试结果
 
-All tests pass successfully:
+所有测试都成功通过：
 
 ```
-✓ Loss Functions
-  - Cross-entropy: Perfect predictions → near-zero loss
-  - MSE: Perfect predictions → zero loss
-  - Sparse and one-hot targets give identical results
+✓ 损失函数
+  - 交叉熵：完美预测 → 接近零的损失
+  - MSE：完美预测 → 零损失
+  - 稀疏和独热目标产生相同的结果
 
-✓ Optimization Utilities
-  - Gradient clipping: Small gradients unchanged, large gradients clipped to max_norm
-  - Learning rate schedule: Exponential decay works correctly
-  - Early stopping: Stops after patience epochs without improvement
+✓ 优化工具
+  - 梯度裁剪：小梯度不变，大梯度裁剪到 max_norm
+  - 学习率调度：指数衰减正常工作
+  - 早停：在耐心值 epoch 后无改进时停止
 
-✓ Training Loop
-  - Single step: Parameters update correctly
-  - Evaluation: Works without parameter updates
-  - Full training: Loss decreases over epochs
-  - History tracking: All metrics recorded correctly
+✓ 训练循环
+  - 单步：参数正确更新
+  - 评估：无参数更新正常工作
+  - 完整训练：损失随 epoch 减少
+  - 历史跟踪：所有指标正确记录
 ```
 
-## Performance Characteristics
+## 性能特征
 
-### Numerical Gradients
-- **Pros**:
-  - Simple to implement
-  - No risk of backpropagation bugs
-  - Educational value
+### 数值梯度
+- **优点**：
+  - 实现简单
+  - 无反向传播错误风险
+  - 教育价值
 
-- **Cons**:
-  - Very slow (O(parameters) forward passes per step)
-  - Approximate (finite difference error)
-  - Not suitable for large models or production use
+- **缺点**：
+  - 非常慢（每步 O(参数量) 次前向传播）
+  - 近似（有限差分误差）
+  - 不适合大型模型或生产使用
 
-### Recommendations
-1. **For prototyping**: Use provided numerical gradients
-2. **For experiments**: Implement fast numerical gradient estimation
-3. **For production**: Implement analytical gradients via BPTT
+### 建议
+1. **用于原型设计**：使用提供的数值梯度
+2. **用于实验**：实现快速数值梯度估计
+3. **用于生产**：通过 BPTT 实现解析梯度
 
-## Simplifications & Limitations
+## 简化与限制
 
-1. **Gradients**: Numerical approximation instead of analytical BPTT
-   - Trade-off: Simplicity vs. speed
-   - Suitable for educational purposes and small models
+1. **梯度**：数值近似而非解析 BPTT
+   - 权衡：简单性与速度
+   - 适合教育目的和小模型
 
-2. **Optimizer**: Simple SGD only (no momentum, Adam, etc.)
-   - Easy to extend with more sophisticated optimizers
+2. **优化器**：仅简单 SGD（无动量、Adam 等）
+   - 易于扩展更复杂的优化器
 
-3. **Batching**: No parallel processing
-   - Pure NumPy implementation (no GPU support)
+3. **批处理**：无并行处理
+   - 纯 NumPy 实现（无 GPU 支持）
 
-4. **Gradient Estimation**: Fast version still approximate
-   - Uses random perturbations instead of element-wise finite differences
+4. **梯度估计**：快速版本仍然是近似的
+   - 使用随机扰动而非逐元素有限差分
 
-## Future Enhancements
+## 未来增强
 
-Potential improvements (not required for this task):
-- [ ] Analytical gradient computation via BPTT
-- [ ] Adam optimizer
-- [ ] Momentum-based optimization
-- [ ] Learning rate warmup
-- [ ] Gradient accumulation for large batches
-- [ ] Mixed precision training simulation
-- [ ] More advanced LR schedules (cosine annealing, etc.)
+可能的改进（本任务不需要）：
+- [ ] 通过 BPTT 进行解析梯度计算
+- [ ] Adam 优化器
+- [ ] 基于动量的优化
+- [ ] 学习率预热
+- [ ] 大批次的梯度累积
+- [ ] 混合精度训练模拟
+- [ ] 更高级的 LR 调度（余弦退火等）
 
-## Integration with Relational RNN
+## 与 Relational RNN 的集成
 
-These utilities are ready to use with the Relational RNN model. Simply ensure your Relational RNN implements the required interface (`forward`, `get_params`, `set_params`), and all training utilities will work seamlessly.
+这些工具可以立即与 Relational RNN 模型一起使用。只需确保您的 Relational RNN 实现所需的接口（`forward`、`get_params`、`set_params`），所有训练工具将无缝工作。
 
-Example:
+示例：
 ```python
 from relational_rnn import RelationalRNN
 from training_utils import train_model
 
-# Create Relational RNN
+# 创建 Relational RNN
 model = RelationalRNN(input_size=10, hidden_size=32, output_size=3)
 
-# Train exactly like LSTM
+# 像训练 LSTM 一样训练
 history = train_model(
     model,
     train_data=(X_train, y_train),
@@ -341,13 +341,13 @@ history = train_model(
 )
 ```
 
-## Summary
+## 总结
 
-This implementation provides a complete, NumPy-only training infrastructure for:
-- **Loss computation**: Cross-entropy and MSE with numerical stability
-- **Gradient computation**: Numerical approximation (finite differences)
-- **Optimization**: Gradient clipping, LR scheduling, early stopping
-- **Training**: Full training loop with metrics tracking
-- **Monitoring**: Comprehensive history and visualization
+此实现提供了完整的、仅 NumPy 的训练基础设施，用于：
+- **损失计算**：具有数值稳定性的交叉熵和 MSE
+- **梯度计算**：数值近似（有限差分）
+- **优化**：梯度裁剪、LR 调度、早停
+- **训练**：具有指标跟踪的完整训练循环
+- **监控**：全面的历史和可视化
 
-All utilities are tested, documented, and ready for use with both LSTM and Relational RNN models.
+所有工具都已测试、记录，并可用于 LSTM 和 Relational RNN 模型。

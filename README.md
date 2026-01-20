@@ -1,300 +1,345 @@
-# Sutskever 30 - Complete Implementation Suite
+# Sutskever 30 - 完整实现套件
 
-**Comprehensive toy implementations of the 30 foundational papers recommended by Ilya Sutskever**
+**Ilya Sutskever 推荐的 30 篇基础论文的综合教学实现**
 
-[![Implementations](https://img.shields.io/badge/Implementations-30%2F30-brightgreen)](https://github.com/pageman/sutskever-30-implementations)
-[![Coverage](https://img.shields.io/badge/Coverage-100%25-blue)](https://github.com/pageman/sutskever-30-implementations)
-[![Python](https://img.shields.io/badge/Python-NumPy%20Only-yellow)](https://numpy.org/)
+[![Implementations](https://img.shields.io/badge/实现-30%2F30-brightgreen)](https://github.com/yoko19191/sutskever-30-implementations-zhCN)
+[![Coverage](https://img.shields.io/badge/覆盖率-100%25-blue)](https://github.com/yoko19191/sutskever-30-implementations-zhCN)
+[![Python](https://img.shields.io/badge/Python-仅NumPy-yellow)](https://numpy.org/)
 
-## Overview
+## 概述
 
-This repository contains detailed, educational implementations of the papers from Ilya Sutskever's famous reading list - the collection he told John Carmack would teach you "90% of what matters" in deep learning.
+本仓库包含了 Ilya Sutskever 著名阅读列表中论文的详细教学实现——他告诉 John Carmack，这个收藏将教会你深度学习中"90% 重要的内容"。
 
-**Progress: 30/30 papers (100%) - COMPLETE! 🎉**
+### 关于阅读列表
 
-Each implementation:
-- ✅ Uses only NumPy (no deep learning frameworks) for educational clarity
-- ✅ Includes synthetic/bootstrapped data for immediate execution
-- ✅ Provides extensive visualizations and explanations
-- ✅ Demonstrates core concepts from each paper
-- ✅ Runs in Jupyter notebooks for interactive learning
+**出处**：这个阅读列表最初由 Ilya Sutskever（OpenAI 联合创始人兼首席科学家）推荐给 John Carmack。该列表在社区中广泛流传，被认为是深度学习领域的核心阅读材料。
 
-## Quick Start
+**论文时间范围**：阅读列表中的论文涵盖了从 2012 年（AlexNet）到 2023 年（Lost in the Middle）的深度学习发展历程，反映了该领域在过去十余年中的关键进展。
+
+**论文更新截止时间**：本阅读列表的论文更新截止至 **2023 年**。最新的论文是论文 30：Lost in the Middle (2023)，该论文揭示了语言模型在长上下文中的位置偏差问题。
+
+**参考资源**：
+
+- 原始阅读列表整理：[Ilya Sutskever 的阅读列表 (GitHub)](https://github.com/dzyim/ilya-sutskever-recommended-reading)
+- 相关讨论和解读：[Aman 的 AI 期刊 - Sutskever 30 入门](https://aman.ai/primers/ai/top-30-papers/)
+
+每个实现：
+
+- ✅ 引用原文出处
+- ✅ 仅使用 NumPy（无深度学习框架）以确保教学清晰度
+- ✅ 包含合成/引导数据以便立即执行
+- ✅ 提供丰富的可视化和解释
+- ✅ 展示每篇论文的核心概念
+- ✅ 在 Jupyter notebooks 中运行以实现交互式学习
+
+## 快速开始
+
+### 1. 安装 uv (如果尚未安装)
+
+**macOS / Linux:**
 
 ```bash
-# Navigate to the directory
-cd sutskever-30-implementations
-
-# Install dependencies
-pip install numpy matplotlib scipy
-
-# Run any notebook
-jupyter notebook 02_char_rnn_karpathy.ipynb
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-## The Sutskever 30 Papers
+**Windows:**
 
-### Foundational Concepts (Papers 1-5)
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
-| # | Paper | Notebook | Key Concepts |
-|---|-------|----------|--------------|
-| 1 | The First Law of Complexodynamics | ✅ `01_complexity_dynamics.ipynb` | Entropy, Complexity Growth, Cellular Automata |
-| 2 | The Unreasonable Effectiveness of RNNs | ✅ `02_char_rnn_karpathy.ipynb` | Character-level models, RNN basics, Text generation |
-| 3 | Understanding LSTM Networks | ✅ `03_lstm_understanding.ipynb` | Gates, Long-term memory, Gradient flow |
-| 4 | RNN Regularization | ✅ `04_rnn_regularization.ipynb` | Dropout for sequences, Variational dropout |
-| 5 | Keeping Neural Networks Simple | ✅ `05_neural_network_pruning.ipynb` | MDL principle, Weight pruning, 90%+ sparsity |
+### 2. 运行项目
 
-### Architectures & Mechanisms (Papers 6-15)
+```bash
+# 克隆仓库
+git clone git@github.com:yoko19191/sutskever-30-implementations-zhCN.git
 
-| # | Paper | Notebook | Key Concepts |
-|---|-------|----------|--------------|
-| 6 | Pointer Networks | ✅ `06_pointer_networks.ipynb` | Attention as pointer, Combinatorial problems |
-| 7 | ImageNet/AlexNet | ✅ `07_alexnet_cnn.ipynb` | CNNs, Convolution, Data augmentation |
-| 8 | Order Matters: Seq2Seq for Sets | ✅ `08_seq2seq_for_sets.ipynb` | Set encoding, Permutation invariance, Attention pooling |
-| 9 | GPipe | ✅ `09_gpipe.ipynb` | Pipeline parallelism, Micro-batching, Re-materialization |
-| 10 | Deep Residual Learning (ResNet) | ✅ `10_resnet_deep_residual.ipynb` | Skip connections, Gradient highways |
-| 11 | Dilated Convolutions | ✅ `11_dilated_convolutions.ipynb` | Receptive fields, Multi-scale |
-| 12 | Neural Message Passing (GNNs) | ✅ `12_graph_neural_networks.ipynb` | Graph networks, Message passing |
-| 13 | **Attention Is All You Need** | ✅ `13_attention_is_all_you_need.ipynb` | Transformers, Self-attention, Multi-head |
-| 14 | Neural Machine Translation | ✅ `14_bahdanau_attention.ipynb` | Seq2seq, Bahdanau attention |
-| 15 | Identity Mappings in ResNet | ✅ `15_identity_mappings_resnet.ipynb` | Pre-activation, Gradient flow |
+# 进入目录
+cd sutskever-30-implementations-zhCN
 
-### Advanced Topics (Papers 16-22)
+# 使用 uv 同步依赖
+uv sync
 
-| # | Paper | Notebook | Key Concepts |
-|---|-------|----------|--------------|
-| 16 | Relational Reasoning | ✅ `16_relational_reasoning.ipynb` | Relation networks, Pairwise functions |
-| 17 | **Variational Lossy Autoencoder** | ✅ `17_variational_autoencoder.ipynb` | VAE, ELBO, Reparameterization trick |
-| 18 | **Relational RNNs** | ✅ `18_relational_rnn.ipynb` | Relational memory, Multi-head self-attention, Manual backprop (~1100 lines) |
-| 19 | The Coffee Automaton | ✅ `19_coffee_automaton.ipynb` | Irreversibility, Entropy, Arrow of time, Landauer's principle |
-| 20 | **Neural Turing Machines** | ✅ `20_neural_turing_machine.ipynb` | External memory, Differentiable addressing |
-| 21 | Deep Speech 2 (CTC) | ✅ `21_ctc_speech.ipynb` | CTC loss, Speech recognition |
-| 22 | **Scaling Laws** | ✅ `22_scaling_laws.ipynb` | Power laws, Compute-optimal training |
+# 运行任何 notebook
+uv run jupyter notebook 02_char_rnn_karpathy.ipynb
+```
 
-### Theory & Meta-Learning (Papers 23-30)
+## Sutskever 30 篇论文
 
-| # | Paper | Notebook | Key Concepts |
-|---|-------|----------|--------------|
-| 23 | MDL Principle | ✅ `23_mdl_principle.ipynb` | Information theory, Model selection, Compression |
-| 24 | **Machine Super Intelligence** | ✅ `24_machine_super_intelligence.ipynb` | Universal AI, AIXI, Solomonoff induction, Intelligence measures, Self-improvement |
-| 25 | Kolmogorov Complexity | ✅ `25_kolmogorov_complexity.ipynb` | Compression, Algorithmic randomness, Universal prior |
-| 26 | **CS231n: CNNs for Visual Recognition** | ✅ `26_cs231n_cnn_fundamentals.ipynb` | Image classification pipeline, kNN/Linear/NN/CNN, Backprop, Optimization, Babysitting neural nets |
-| 27 | Multi-token Prediction | ✅ `27_multi_token_prediction.ipynb` | Multiple future tokens, Sample efficiency, 2-3x faster |
-| 28 | Dense Passage Retrieval | ✅ `28_dense_passage_retrieval.ipynb` | Dual encoders, MIPS, In-batch negatives |
-| 29 | Retrieval-Augmented Generation | ✅ `29_rag.ipynb` | RAG-Sequence, RAG-Token, Knowledge retrieval |
-| 30 | Lost in the Middle | ✅ `30_lost_in_middle.ipynb` | Position bias, Long context, U-shaped curve |
+### 基础概念（论文 1-5）
 
-## Featured Implementations
+| # | 论文                                                     | Notebook                              | 核心概念                             |
+| - | -------------------------------------------------------- | ------------------------------------- | ------------------------------------ |
+| 1 | 复杂性动力学第一定律 (The First Law of Complexodynamics) | ✅`01_complexity_dynamics.ipynb`    | 熵 (Entropy)、复杂性增长、细胞自动机 |
+| 2 | RNN 的惊人有效性                                         | ✅`02_char_rnn_karpathy.ipynb`      | 字符级模型、RNN 基础、文本生成       |
+| 3 | 理解 LSTM 网络                                           | ✅`03_lstm_understanding.ipynb`     | 门控 (Gates)、长期记忆、梯度流       |
+| 4 | RNN 正则化                                               | ✅`04_rnn_regularization.ipynb`     | 序列丢弃 (Dropout)、变分丢弃         |
+| 5 | 保持神经网络简单                                         | ✅`05_neural_network_pruning.ipynb` | MDL 原则、权重剪枝、90%+ 稀疏性      |
 
-### 🌟 Must-Read Notebooks
+### 架构与机制（论文 6-15）
 
-These implementations cover the most influential papers and demonstrate core deep learning concepts:
+| #  | 论文                                                           | Notebook                                 | 核心概念                                         |
+| -- | -------------------------------------------------------------- | ---------------------------------------- | ------------------------------------------------ |
+| 6  | 指针网络 (Pointer Networks)                                    | ✅`06_pointer_networks.ipynb`          | 注意力作为指针、组合优化问题                     |
+| 7  | ImageNet/AlexNet                                               | ✅`07_alexnet_cnn.ipynb`               | CNN、卷积、数据增强                              |
+| 8  | 顺序很重要：集合的序列到序列 (Order Matters: Seq2Seq for Sets) | ✅`08_seq2seq_for_sets.ipynb`          | 集合编码、排列不变性、注意力池化                 |
+| 9  | GPipe                                                          | ✅`09_gpipe.ipynb`                     | 流水线并行、微批次、重计算                       |
+| 10 | 深度残差学习 (ResNet)                                          | ✅`10_resnet_deep_residual.ipynb`      | 跳跃连接、梯度高速公路                           |
+| 11 | 扩张卷积                                                       | ✅`11_dilated_convolutions.ipynb`      | 感受野、多尺度                                   |
+| 12 | 神经消息传递 (GNNs)                                            | ✅`12_graph_neural_networks.ipynb`     | 图网络、消息传递                                 |
+| 13 | **Attention Is All You Need**                            | ✅`13_attention_is_all_you_need.ipynb` | Transformers (Transformer)、自注意力、多头注意力 |
+| 14 | 神经机器翻译                                                   | ✅`14_bahdanau_attention.ipynb`        | 序列到序列 (Seq2seq)、Bahdanau 注意力            |
+| 15 | ResNet 中的恒等映射                                            | ✅`15_identity_mappings_resnet.ipynb`  | 预激活、梯度流                                   |
 
-#### Foundations
-1. **`02_char_rnn_karpathy.ipynb`** - Character-level RNN
-   - Build RNN from scratch
-   - Understand backpropagation through time
-   - Generate text
+### 高级主题（论文 16-22）
 
-2. **`03_lstm_understanding.ipynb`** - LSTM Networks
-   - Implement forget/input/output gates
-   - Visualize gate activations
-   - Compare with vanilla RNN
+| #  | 论文                              | Notebook                               | 核心概念                                        |
+| -- | --------------------------------- | -------------------------------------- | ----------------------------------------------- |
+| 16 | 关系推理 (Relational Reasoning)   | ✅`16_relational_reasoning.ipynb`    | 关系网络、成对函数                              |
+| 17 | **变分有损自编码器**        | ✅`17_variational_autoencoder.ipynb` | VAE、ELBO、重参数化技巧                         |
+| 18 | **关系 RNN**                | ✅`18_relational_rnn.ipynb`          | 关系记忆、多头自注意力、手动反向传播 (~1100 行) |
+| 19 | 咖啡自动机 (The Coffee Automaton) | ✅`19_coffee_automaton.ipynb`        | 不可逆性、熵、时间箭头、Landauer 原理           |
+| 20 | **神经图灵机**              | ✅`20_neural_turing_machine.ipynb`   | 外部记忆、可微分寻址                            |
+| 21 | Deep Speech 2 (CTC)               | ✅`21_ctc_speech.ipynb`              | CTC 损失、语音识别                              |
+| 22 | Scaling Law                       | ✅`22_scaling_laws.ipynb`            | 幂律、计算最优训练                              |
 
-3. **`04_rnn_regularization.ipynb`** - RNN Regularization
-   - Variational dropout for RNNs
-   - Proper dropout placement
-   - Training improvements
+### 理论与元学习（论文 23-30）
 
-4. **`05_neural_network_pruning.ipynb`** - Network Pruning & MDL
-   - Magnitude-based pruning
-   - Iterative pruning with fine-tuning
-   - 90%+ sparsity with minimal loss
-   - Minimum Description Length principle
+| #  | 论文                                          | Notebook                                  | 核心概念                                                    |
+| -- | --------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
+| 23 | MDL 原则                                      | ✅`23_mdl_principle.ipynb`              | 信息论、模型选择、压缩                                      |
+| 24 | **机器超级智能**                        | ✅`24_machine_super_intelligence.ipynb` | 通用 AI、AIXI、Solomonoff 归纳、智能度量、自我改进          |
+| 25 | Kolmogorov 复杂性                             | ✅`25_kolmogorov_complexity.ipynb`      | 压缩、算法随机性、通用先验                                  |
+| 26 | **CS231n: CNN 视觉识别**                | ✅`26_cs231n_cnn_fundamentals.ipynb`    | 图像分类流程、kNN/线性/NN/CNN、反向传播、优化、调优神经网络 |
+| 27 | 多令牌预测 (Multi-token Prediction)           | ✅`27_multi_token_prediction.ipynb`     | 多个未来令牌、样本效率、快 2-3 倍                           |
+| 28 | 密集段落检索                                  | ✅`28_dense_passage_retrieval.ipynb`    | 双编码器、MIPS、批次内负样本                                |
+| 29 | 检索增强生成 (Retrieval-Augmented Generation) | ✅`29_rag.ipynb`                        | RAG-Sequence、RAG-Token、知识检索                           |
+| 30 | 迷失在中间 (Lost in the Middle)               | ✅`30_lost_in_middle.ipynb`             | 位置偏差、长上下文、U 型曲线                                |
 
-#### Computer Vision
-5. **`07_alexnet_cnn.ipynb`** - CNNs & AlexNet
-   - Convolutional layers from scratch
-   - Max pooling and ReLU
-   - Data augmentation techniques
+## 精选实现
 
+### 🌟 必读 Notebooks
+
+这些实现涵盖了最有影响力的论文并展示了核心深度学习概念：
+
+#### 基础
+
+1. **`02_char_rnn_karpathy.ipynb`** - 字符级 RNN
+
+   - 从零构建 RNN
+   - 理解通过时间的反向传播
+   - 生成文本
+2. **`03_lstm_understanding.ipynb`** - LSTM 网络
+
+   - 实现遗忘/输入/输出门
+   - 可视化门控激活
+   - 与普通 RNN 比较
+3. **`04_rnn_regularization.ipynb`** - RNN 正则化
+
+   - RNN 的变分丢弃
+   - 正确的丢弃放置
+   - 训练改进
+4. **`05_neural_network_pruning.ipynb`** - 网络剪枝与 MDL
+
+   - 基于幅度的剪枝
+   - 迭代剪枝与微调
+   - 90%+ 稀疏性且损失最小
+   - 最小描述长度原则
+
+#### 计算机视觉
+
+5. **`07_alexnet_cnn.ipynb`** - CNN 与 AlexNet
+
+   - 从零实现卷积层
+   - 最大池化和 ReLU
+   - 数据增强技术
 6. **`10_resnet_deep_residual.ipynb`** - ResNet
-   - Skip connections solve degradation
-   - Gradient flow visualization
-   - Identity mapping intuition
 
-7. **`15_identity_mappings_resnet.ipynb`** - Pre-activation ResNet
-   - Pre-activation vs post-activation
-   - Better gradient flow
-   - Training 1000+ layer networks
+   - 跳跃连接解决退化问题
+   - 梯度流可视化
+   - 恒等映射直觉
+7. **`15_identity_mappings_resnet.ipynb`** - 预激活 ResNet
 
-8. **`11_dilated_convolutions.ipynb`** - Dilated Convolutions
-   - Multi-scale receptive fields
-   - No pooling required
-   - Semantic segmentation
+   - 预激活 vs 后激活
+   - 更好的梯度流
+   - 训练 1000+ 层网络
+8. **`11_dilated_convolutions.ipynb`** - 扩张卷积
 
-#### Attention & Transformers
-9. **`14_bahdanau_attention.ipynb`** - Neural Machine Translation
-   - Original attention mechanism
-   - Seq2seq with alignment
-   - Attention visualization
+   - 多尺度感受野
+   - 无需池化
+   - 语义分割
 
+#### 注意力机制与 Transformers
+
+9. **`14_bahdanau_attention.ipynb`** - 神经机器翻译
+
+   - 原始注意力机制
+   - 带对齐的序列到序列 (Seq2seq)
+   - 注意力可视化
 10. **`13_attention_is_all_you_need.ipynb`** - Transformers
-    - Scaled dot-product attention
-    - Multi-head attention
-    - Positional encoding
-    - Foundation of modern LLMs
 
-11. **`06_pointer_networks.ipynb`** - Pointer Networks
-    - Attention as selection
-    - Combinatorial optimization
-    - Variable output size
+    - 缩放点积注意力
+    - 多头注意力
+    - 位置编码
+    - 现代 LLM 的基础
+11. **`06_pointer_networks.ipynb`** - 指针网络
 
-12. **`08_seq2seq_for_sets.ipynb`** - Seq2Seq for Sets
-    - Permutation-invariant set encoder
-    - Read-Process-Write architecture
-    - Attention over unordered elements
-    - Sorting and set operations
-    - Comparison: order-sensitive vs order-invariant
+    - 注意力作为选择
+    - 组合优化
+    - 可变输出大小
+12. **`08_seq2seq_for_sets.ipynb`** - 集合的序列到序列
 
-13. **`09_gpipe.ipynb`** - GPipe Pipeline Parallelism
-    - Model partitioning across devices
-    - Micro-batching for pipeline utilization
-    - F-then-B schedule (forward all, backward all)
-    - Re-materialization (gradient checkpointing)
-    - Bubble time analysis
-    - Training models larger than single-device memory
+    - 排列不变集合编码器
+    - 读取-处理-写入架构
+    - 无序元素的注意力
+    - 排序和集合操作
+    - 比较：顺序敏感 vs 顺序不变
+13. **`09_gpipe.ipynb`** - GPipe 流水线并行
 
-#### Advanced Topics
-14. **`12_graph_neural_networks.ipynb`** - Graph Neural Networks
-    - Message passing framework
-    - Graph convolutions
-    - Molecular property prediction
+    - 跨设备的模型分区
+    - 流水线利用的微批次
+    - 先前向后调度 (全部前向，全部反向)
+    - 重计算 (梯度检查点)
+    - 气泡时间分析
+    - 训练超过单设备内存的模型
 
-15. **`16_relational_reasoning.ipynb`** - Relation Networks
-    - Pairwise relational reasoning
-    - Visual QA
-    - Permutation invariance
+#### 高级主题
 
-16. **`18_relational_rnn.ipynb`** - Relational RNN
-    - LSTM with relational memory
-    - Multi-head self-attention across memory slots
-    - Architecture demonstration (forward pass)
-    - Sequential reasoning tasks
-    - **Section 11: Manual backpropagation implementation (~1100 lines)**
-    - Complete gradient computation for all components
-    - Gradient checking with numerical verification
+14. **`12_graph_neural_networks.ipynb`** - 图神经网络
 
-17. **`20_neural_turing_machine.ipynb`** - Memory-Augmented Networks
-    - Content & location addressing
-    - Differentiable read/write
-    - External memory
+    - 消息传递框架
+    - 图卷积
+    - 分子属性预测
+15. **`16_relational_reasoning.ipynb`** - 关系网络
 
-18. **`21_ctc_speech.ipynb`** - CTC Loss & Speech Recognition
-    - Connectionist Temporal Classification
-    - Alignment-free training
-    - Forward algorithm
+    - 成对关系推理
+    - 视觉问答 (Visual QA)
+    - 排列不变性
+16. **`18_relational_rnn.ipynb`** - 关系 RNN
 
-#### Generative Models
+    - 带关系记忆的 LSTM
+    - 跨记忆槽的多头自注意力
+    - 架构演示（前向传播）
+    - 序列推理任务
+    - **第 11 节：手动反向传播实现 (~1100 行)**
+    - 所有组件的完整梯度计算
+    - 数值验证的梯度检查
+17. **`20_neural_turing_machine.ipynb`** - 记忆增强网络
+
+    - 内容和位置寻址
+    - 可微分读/写
+    - 外部记忆
+18. **`21_ctc_speech.ipynb`** - CTC 损失与语音识别
+
+    - 联结时序分类
+    - 无对齐训练
+    - 前向算法
+
+#### 生成模型
+
 19. **`17_variational_autoencoder.ipynb`** - VAE
-    - Generative modeling
-    - ELBO loss
-    - Latent space visualization
+    - 生成建模
+    - ELBO 损失
+    - 潜空间可视化
 
-#### Modern Applications
-20. **`27_multi_token_prediction.ipynb`** - Multi-Token Prediction
-    - Predict multiple future tokens
-    - 2-3x sample efficiency
-    - Speculative decoding
-    - Faster training & inference
+#### 现代应用
 
-21. **`28_dense_passage_retrieval.ipynb`** - Dense Retrieval
-    - Dual encoder architecture
-    - In-batch negatives
-    - Semantic search
+20. **`27_multi_token_prediction.ipynb`** - 多令牌预测
 
-22. **`29_rag.ipynb`** - Retrieval-Augmented Generation
+    - 预测多个未来令牌
+    - 2-3 倍样本效率
+    - 投机解码
+    - 更快的训练和推理
+21. **`28_dense_passage_retrieval.ipynb`** - 密集检索
+
+    - 双编码器架构
+    - 批次内负样本
+    - 语义搜索
+22. **`29_rag.ipynb`** - 检索增强生成
+
     - RAG-Sequence vs RAG-Token
-    - Combining retrieval + generation
-    - Knowledge-grounded outputs
+    - 结合检索 + 生成
+    - 知识驱动输出
+23. **`30_lost_in_middle.ipynb`** - 长上下文分析
 
-23. **`30_lost_in_middle.ipynb`** - Long Context Analysis
-    - Position bias in LLMs
-    - U-shaped performance curve
-    - Document ordering strategies
+    - LLM 中的位置偏差
+    - U 型性能曲线
+    - 文档排序策略
 
-#### Scaling & Theory
-24. **`22_scaling_laws.ipynb`** - Scaling Laws
-    - Power law relationships
-    - Compute-optimal training
-    - Performance prediction
+#### 缩放与理论
 
-25. **`23_mdl_principle.ipynb`** - Minimum Description Length
-    - Information-theoretic model selection
-    - Compression = Understanding
-    - MDL vs AIC/BIC comparison
-    - Neural network architecture selection
-    - MDL-based pruning (connects to Paper 5)
-    - Kolmogorov complexity preview
+24. **`22_scaling_laws.ipynb`** - 缩放定律
 
-26. **`25_kolmogorov_complexity.ipynb`** - Kolmogorov Complexity
-    - K(x) = shortest program generating x
-    - Randomness = Incompressibility
-    - Algorithmic probability (Solomonoff)
-    - Universal prior for induction
-    - Connection to Shannon entropy
-    - Occam's Razor formalized
-    - Theoretical foundation for ML
+    - 幂律关系
+    - 计算最优训练
+    - 性能预测
+25. **`23_mdl_principle.ipynb`** - 最小描述长度
 
-27. **`24_machine_super_intelligence.ipynb`** - Universal Artificial Intelligence
-    - **Formal theory of intelligence (Legg & Hutter)**
-    - Psychometric g-factor and universal intelligence Υ(π)
-    - Solomonoff induction for sequence prediction
-    - AIXI: Theoretically optimal RL agent
-    - Monte Carlo AIXI (MC-AIXI) approximation
-    - Kolmogorov complexity estimation
-    - Intelligence measurement across environments
-    - Recursive self-improvement dynamics
-    - Intelligence explosion scenarios
-    - **6 sections: from psychometrics to superintelligence**
-    - Connects Papers #23 (MDL), #25 (Kolmogorov), #8 (DQN)
+    - 信息论模型选择
+    - 压缩 = 理解
+    - MDL vs AIC/BIC 比较
+    - 神经网络架构选择
+    - 基于 MDL 的剪枝（连接到论文 5）
+    - Kolmogorov 复杂性预览
+26. **`25_kolmogorov_complexity.ipynb`** - Kolmogorov 复杂性
 
-28. **`01_complexity_dynamics.ipynb`** - Complexity & Entropy
-    - Cellular automata (Rule 30)
-    - Entropy growth
-    - Irreversibility (basic introduction)
+    - K(x) = 生成 x 的最短程序
+    - 随机性 = 不可压缩性
+    - 算法概率 (Solomonoff)
+    - 归纳的通用先验
+    - 与 Shannon 熵的连接
+    - 奥卡姆剃刀的形式化
+    - ML 的理论基础
+27. **`24_machine_super_intelligence.ipynb`** - 通用人工智能
 
-28. **`19_coffee_automaton.ipynb`** - The Coffee Automaton (Deep Dive)
-    - **Comprehensive exploration of irreversibility**
-    - Coffee mixing and diffusion processes
-    - Entropy growth and coarse-graining
-    - Phase space and Liouville's theorem
-    - Poincaré recurrence theorem (will unmix after e^N time!)
-    - Maxwell's demon and Landauer's principle
-    - Computational irreversibility (one-way functions, hashing)
-    - Information bottleneck in machine learning
-    - Biological irreversibility (life and the 2nd law)
-    - Arrow of time: fundamental vs emergent
-    - **10 comprehensive sections exploring irreversibility across all scales**
+    - **智能的形式理论 (Legg & Hutter)**
+    - 心理测量 g 因子和通用智能 Υ(π)
+    - 序列预测的 Solomonoff 归纳
+    - AIXI：理论最优的 RL 智能体
+    - 蒙特卡洛 AIXI (MC-AIXI) 近似
+    - Kolmogorov 复杂性估计
+    - 跨环境的智能测量
+    - 递归自我改进动态
+    - 智能爆炸场景
+    - **6 个章节：从心理测量到超级智能**
+    - 连接论文 #23 (MDL)、#25 (Kolmogorov)、#8 (DQN)
+28. **`01_complexity_dynamics.ipynb`** - 复杂性与熵
 
-29. **`26_cs231n_cnn_fundamentals.ipynb`** - CS231n: Vision from First Principles
-    - **Complete vision pipeline in pure NumPy**
-    - k-Nearest Neighbors baseline
-    - Linear classifiers (SVM and Softmax)
-    - Optimization (SGD, Momentum, Adam, learning rate schedules)
-    - 2-layer neural networks with backpropagation
-    - Convolutional layers (conv, pool, ReLU)
-    - Complete CNN architecture (Mini-AlexNet)
-    - Visualization techniques (filters, saliency maps)
-    - Transfer learning principles
-    - Babysitting tips (sanity checks, hyperparameter tuning, monitoring)
-    - **10 sections covering entire CS231n curriculum**
-    - Ties together Papers #7 (AlexNet), #10 (ResNet), #11 (Dilated Conv)
+    - 细胞自动机 (Rule 30)
+    - 熵增长
+    - 不可逆性（基础介绍）
+29. **`19_coffee_automaton.ipynb`** - 咖啡自动机（深度探索）
+
+    - **不可逆性的全面探索**
+    - 咖啡混合和扩散过程
+    - 熵增长和粗粒化
+    - 相空间和 Liouville 定理
+    - Poincaré 回归定理（e^N 时间后会重新混合！）
+    - Maxwell 妖和 Landauer 原理
+    - 计算不可逆性（单向函数、哈希）
+    - 机器学习中的信息瓶颈
+    - 生物不可逆性（生命和第二定律）
+    - 时间箭头：基本 vs 涌现
+    - **10 个全面章节探索所有尺度的不可逆性**
+30. **`26_cs231n_cnn_fundamentals.ipynb`** - CS231n：从第一性原理的视觉
+
+    - **纯 NumPy 的完整视觉流程**
+    - k 近邻基线
+    - 线性分类器 (SVM 和 Softmax)
+    - 优化 (SGD、Momentum、Adam、学习率调度)
+    - 带反向传播的 2 层神经网络
+    - 卷积层 (conv、pool、ReLU)
+    - 完整的 CNN 架构 (Mini-AlexNet)
+    - 可视化技术（滤波器、显著性图）
+    - 迁移学习原则
+    - 调优技巧（健全性检查、超参数调优、监控）
+    - **10 个章节覆盖整个 CS231n 课程**
+    - 连接论文 #7 (AlexNet)、#10 (ResNet)、#11 (扩张卷积)
 
 ## Repository Structure
 
 ```
-sutskever-30-implementations/
+sutskever-30-implementations-zhCN/
 ├── README.md                           # This file
 ├── PROGRESS.md                         # Implementation progress tracking
 ├── IMPLEMENTATION_TRACKS.md            # Detailed tracks for all 30 papers
@@ -336,6 +381,7 @@ sutskever-30-implementations/
 ## Learning Path
 
 ### Beginner Track (Start here!)
+
 1. **Character RNN** (`02_char_rnn_karpathy.ipynb`) - Learn basic RNNs
 2. **LSTM** (`03_lstm_understanding.ipynb`) - Understand gating mechanisms
 3. **CNNs** (`07_alexnet_cnn.ipynb`) - Computer vision fundamentals
@@ -343,6 +389,7 @@ sutskever-30-implementations/
 5. **VAE** (`17_variational_autoencoder.ipynb`) - Generative models
 
 ### Intermediate Track
+
 6. **RNN Regularization** (`04_rnn_regularization.ipynb`) - Better training
 7. **Bahdanau Attention** (`14_bahdanau_attention.ipynb`) - Attention basics
 8. **Pointer Networks** (`06_pointer_networks.ipynb`) - Attention as selection
@@ -354,6 +401,7 @@ sutskever-30-implementations/
 14. **Scaling Laws** (`22_scaling_laws.ipynb`) - Understanding scale
 
 ### Advanced Track
+
 15. **Pre-activation ResNet** (`15_identity_mappings_resnet.ipynb`) - Architecture details
 16. **Graph Neural Networks** (`12_graph_neural_networks.ipynb`) - Graph learning
 17. **Relation Networks** (`16_relational_reasoning.ipynb`) - Relational reasoning
@@ -364,6 +412,7 @@ sutskever-30-implementations/
 22. **Lost in the Middle** (`30_lost_in_middle.ipynb`) - Long context analysis
 
 ### Theory & Fundamentals
+
 23. **MDL Principle** (`23_mdl_principle.ipynb`) - Model selection via compression
 24. **Kolmogorov Complexity** (`25_kolmogorov_complexity.ipynb`) - Randomness & information
 25. **Complexity Dynamics** (`01_complexity_dynamics.ipynb`) - Entropy & emergence
@@ -372,169 +421,171 @@ sutskever-30-implementations/
 ## Key Insights from the Sutskever 30
 
 ### Architecture Evolution
+
 - **RNN → LSTM**: Gating solves vanishing gradients
 - **Plain Networks → ResNet**: Skip connections enable depth
 - **RNN → Transformer**: Attention enables parallelization
 - **Fixed vocab → Pointers**: Output can reference input
 
 ### Fundamental Mechanisms
+
 - **Attention**: Differentiable selection mechanism
 - **Residual Connections**: Gradient highways
 - **Gating**: Learned information flow control
 - **External Memory**: Separate storage from computation
 
 ### Training Insights
+
 - **Scaling Laws**: Performance predictably improves with scale
 - **Regularization**: Dropout, weight decay, data augmentation
 - **Optimization**: Gradient clipping, learning rate schedules
 - **Compute-Optimal**: Balance model size and training data
 
 ### Theoretical Foundations
+
 - **Information Theory**: Compression, entropy, MDL
 - **Complexity**: Kolmogorov complexity, power laws
 - **Generative Modeling**: VAE, ELBO, latent spaces
 - **Memory**: Differentiable data structures
 
-## Implementation Philosophy
+## 实现理念
 
-### Why NumPy-only?
+### 为什么仅使用 NumPy？
 
-These implementations deliberately avoid PyTorch/TensorFlow to:
-- **Deepen understanding**: See what frameworks abstract away
-- **Educational clarity**: No magic, every operation explicit
-- **Core concepts**: Focus on algorithms, not framework APIs
-- **Transferable knowledge**: Principles apply to any framework
+这些实现有意避免使用 PyTorch/TensorFlow 以：
 
-### Synthetic Data Approach
+- **加深理解**：看清楚框架抽象的内容
+- **教学清晰度**：无魔法，每项操作都显式
+- **核心概念**：专注于算法而非框架 API
+- **可迁移知识**：原则适用于任何框架
 
-Each notebook generates its own data to:
-- **Immediate execution**: No dataset downloads required
-- **Controlled experiments**: Understand behavior on simple cases
-- **Concept focus**: Data doesn't obscure the algorithm
-- **Rapid iteration**: Modify and re-run instantly
+### 合成数据方法
 
-## Extensions & Next Steps
+每个 notebook 生成自己的数据以：
 
-### Build on These Implementations
+- **立即执行**：无需下载数据集
+- **受控实验**：理解简单情况下的行为
+- **概念专注**：数据不会模糊算法
+- **快速迭代**：立即修改和重新运行
 
-After understanding the core concepts, try:
+## 扩展与后续步骤
 
-1. **Scale up**: Implement in PyTorch/JAX for real datasets
-2. **Combine techniques**: E.g., ResNet + Attention
-3. **Modern variants**:
+### 基于这些实现构建
+
+理解核心概念后，尝试：
+
+1. **扩展**：在 PyTorch/JAX 中实现以处理真实数据集
+2. **组合技术**：例如，ResNet + Attention
+3. **现代变体**：
    - RNN → GRU → Transformer
    - VAE → β-VAE → VQ-VAE
    - ResNet → ResNeXt → EfficientNet
-4. **Applications**: Apply to real problems
+4. **应用**：应用于实际问题
 
-### Research Directions
+### 研究方向
 
-The Sutskever 30 points toward:
-- Scaling (bigger models, more data)
-- Efficiency (sparse models, quantization)
-- Capabilities (reasoning, multi-modal)
-- Understanding (interpretability, theory)
+Sutskever 30 指向：
 
-## Resources
+- 缩放（更大的模型、更多数据）
+- 效率（稀疏模型、量化）
+- 能力（推理、多模态）
+- 理解（可解释性、理论）
 
-### Original Papers
-See `IMPLEMENTATION_TRACKS.md` for full citations and links
+## 资源
 
-### Additional Reading
-- [Ilya Sutskever's Reading List (GitHub)](https://github.com/dzyim/ilya-sutskever-recommended-reading)
-- [Aman's AI Journal - Sutskever 30 Primers](https://aman.ai/primers/ai/top-30-papers/)
-- [The Annotated Transformer](http://nlp.seas.harvard.edu/annotated-transformer/)
-- [Andrej Karpathy's Blog](http://karpathy.github.io/)
+### 原始论文
 
-### Courses
-- Stanford CS231n: Convolutional Neural Networks
-- Stanford CS224n: NLP with Deep Learning
-- MIT 6.S191: Introduction to Deep Learning
+完整引用和链接见 `IMPLEMENTATION_TRACKS.md`
 
-## Contributing
+### 延伸阅读
 
-These implementations are educational and can be improved! Consider:
-- Adding more visualizations
-- Implementing missing papers
-- Improving explanations
-- Finding bugs
-- Adding comparisons with framework implementations
+- [Ilya Sutskever 的阅读列表 (GitHub)](https://github.com/dzyim/ilya-sutskever-recommended-reading)
+- [Aman 的 AI 期刊 - Sutskever 30 入门](https://aman.ai/primers/ai/top-30-papers/)
+- [带注释的 Transformer](http://nlp.seas.harvard.edu/annotated-transformer/)
+- [Andrej Karpathy 的博客](http://karpathy.github.io/)
 
-## Citation
+### 课程
 
-If you use these implementations in your work or teaching:
+- Stanford CS231n：卷积神经网络
+- Stanford CS224n：深度学习自然语言处理
+- MIT 6.S191：深度学习导论
 
-```bibtex
-@misc{sutskever30implementations,
-  title={Sutskever 30: Complete Implementation Suite},
-  author={Paul "The Pageman" Pajo, pageman@gmail.com},
-  year={2025},
-  note={Educational implementations of Ilya Sutskever's recommended reading list, inspired by https://papercode.vercel.app/}
-}
-```
+## 贡献
 
-## License
+这些实现是教育性的，可以改进！考虑：
 
-Educational use. See individual papers for original research citations.
+- 添加更多可视化
+- 实现缺失的论文
+- 改进解释
+- 发现错误
+- 添加与框架实现的比较
 
-## Acknowledgments
+## 许可证
 
-- **Ilya Sutskever**: For curating this essential reading list
-- **Paper authors**: For their foundational contributions
-- **Community**: For making these ideas accessible
+教育用途。原始研究引用请参阅各论文。
+
+## 致谢
+
+- **Ilya Sutskever**：策划了这个基本阅读列表
+- **论文作者**：他们的基础性贡献
+- **社区**：让这些想法变得易于理解
 
 ---
 
-## Latest Additions (December 2025)
+## 最新添加（2025 年 12 月）
 
-### Recently Implemented (21 new papers!)
-- ✅ **Paper 4**: RNN Regularization (variational dropout)
-- ✅ **Paper 5**: Neural Network Pruning (MDL, 90%+ sparsity)
-- ✅ **Paper 7**: AlexNet (CNNs from scratch)
-- ✅ **Paper 8**: Seq2Seq for Sets (permutation invariance, attention pooling)
-- ✅ **Paper 9**: GPipe (pipeline parallelism, micro-batching, re-materialization)
-- ✅ **Paper 19**: The Coffee Automaton (deep dive into irreversibility, entropy, Landauer's principle)
-- ✅ **Paper 26**: CS231n (complete vision pipeline: kNN → CNN, all in NumPy)
-- ✅ **Paper 11**: Dilated Convolutions (multi-scale)
-- ✅ **Paper 12**: Graph Neural Networks (message passing)
-- ✅ **Paper 14**: Bahdanau Attention (original attention)
-- ✅ **Paper 15**: Identity Mappings ResNet (pre-activation)
-- ✅ **Paper 16**: Relational Reasoning (relation networks)
-- ✅ **Paper 18**: Relational RNNs (relational memory + Section 11: manual backprop ~1100 lines)
-- ✅ **Paper 21**: Deep Speech 2 (CTC loss)
-- ✅ **Paper 23**: MDL Principle (compression, model selection, connects to Papers 5 & 25)
-- ✅ **Paper 24**: Machine Super Intelligence (Universal AI, AIXI, Solomonoff induction, intelligence measures, recursive self-improvement)
-- ✅ **Paper 25**: Kolmogorov Complexity (randomness, algorithmic probability, theoretical foundation)
-- ✅ **Paper 27**: Multi-Token Prediction (2-3x sample efficiency)
-- ✅ **Paper 28**: Dense Passage Retrieval (dual encoders)
-- ✅ **Paper 29**: RAG (retrieval-augmented generation)
-- ✅ **Paper 30**: Lost in the Middle (long context)
+### 最近实现（21 篇新论文！）
 
-## Quick Reference: Implementation Complexity
+- ✅ **论文 4**：RNN 正则化（变分丢弃）
+- ✅ **论文 5**：神经网络剪枝（MDL、90%+ 稀疏性）
+- ✅ **论文 7**：AlexNet（从零实现 CNN）
+- ✅ **论文 8**：集合的序列到序列（排列不变性、注意力池化）
+- ✅ **论文 9**：GPipe（流水线并行、微批次、重计算）
+- ✅ **论文 19**：咖啡自动机（深入探讨不可逆性、熵、Landauer 原理）
+- ✅ **论文 26**：CS231n（完整视觉流程：kNN → CNN，全部使用 NumPy）
+- ✅ **论文 11**：扩张卷积（多尺度）
+- ✅ **论文 12**：图神经网络（消息传递）
+- ✅ **论文 14**：Bahdanau 注意力（原始注意力）
+- ✅ **论文 15**：ResNet 恒等映射（预激活）
+- ✅ **论文 16**：关系推理（关系网络）
+- ✅ **论文 18**：关系 RNN（关系记忆 + 第 11 节：手动反向传播 ~1100 行）
+- ✅ **论文 21**：Deep Speech 2（CTC 损失）
+- ✅ **论文 23**：MDL 原则（压缩、模型选择，连接到论文 5 和 25）
+- ✅ **论文 24**：机器超级智能（通用 AI、AIXI、Solomonoff 归纳、智能度量、递归自我改进）
+- ✅ **论文 25**：Kolmogorov 复杂性（随机性、算法概率、理论基础）
+- ✅ **论文 27**：多令牌预测（2-3 倍样本效率）
+- ✅ **论文 28**：密集段落检索（双编码器）
+- ✅ **论文 29**：RAG（检索增强生成）
+- ✅ **论文 30**：迷失在中间（长上下文）
 
-### Can Implement in an Afternoon
-- ✅ Character RNN
+## 快速参考：实现复杂度
+
+### 可以在一个下午实现
+
+- ✅ 字符级 RNN
 - ✅ LSTM
 - ✅ ResNet
-- ✅ Simple VAE
-- ✅ Dilated Convolutions
+- ✅ 简单的 VAE
+- ✅ 扩张卷积
 
-### Weekend Projects
+### 周末项目
+
 - ✅ Transformer
-- ✅ Pointer Networks
-- ✅ Graph Neural Networks
-- ✅ Relation Networks
-- ✅ Neural Turing Machine
-- ✅ CTC Loss
-- ✅ Dense Retrieval
+- ✅ 指针网络
+- ✅ 图神经网络
+- ✅ 关系网络
+- ✅ 神经图灵机
+- ✅ CTC 损失
+- ✅ 密集检索
 
-### Week-Long Deep Dives
-- ✅ Full RAG system
-- ⚠️ Large-scale experiments
-- ⚠️ Hyperparameter optimization
+### 一周深度探索
+
+- ✅ 完整的 RAG 系统
+- ⚠️ 大规模实验
+- ⚠️ 超参数优化
 
 ---
 
-**"If you really learn all of these, you'll know 90% of what matters today."** - Ilya Sutskever
+**"如果你真的学会了所有这些，你将了解今天 90% 重要的内容。"** - Ilya Sutskever
 
-Happy learning! 🚀
+祝学习愉快！🚀

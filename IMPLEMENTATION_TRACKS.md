@@ -1,79 +1,79 @@
-# Sutskever 30 - Complete Implementation Tracks
+# Sutskever 30 - 完整实现轨道
 
-This document provides detailed implementation tracks for each paper in Ilya Sutskever's famous reading list.
+本文档提供了 Ilya Sutskever 著名阅读列表中每篇论文的详细实现轨道。
 
-**Status: 30/30 papers implemented (100% complete!)** ✅
+**状态：30/30 篇论文已实现 (100% 完成！)** ✅
 
-All implementations use NumPy-only code with synthetic data for immediate execution and educational clarity.
-
----
-
-## 1. The First Law of Complexodynamics (Scott Aaronson)
-
-**Type**: Theoretical Essay
-**Implementable**: Yes (Conceptual)
-**Notebook**: `01_complexity_dynamics.ipynb` ✅
-
-**Implementation Track**:
-- Demonstrate entropy and complexity growth using cellular automata
-- Implement simple physical simulations showing complexity dynamics
-- Visualize entropy changes in closed systems
-
-**What We Built**:
-- Rule 30 cellular automaton simulation
-- Entropy measurement over time
-- Complexity metrics and visualization
-- Introduction to irreversibility concepts
-
-**Key Concepts**: Entropy, Complexity, Second Law of Thermodynamics, Cellular Automata
+所有实现都使用仅 NumPy 的代码和合成数据以便立即执行和教育清晰度。
 
 ---
 
-## 2. The Unreasonable Effectiveness of RNNs (Andrej Karpathy)
+## 1. 复杂性动力学第一定律 (The First Law of Complexodynamics) (Scott Aaronson)
 
-**Type**: Character-level Language Model
-**Implementable**: Yes
-**Notebook**: `02_char_rnn_karpathy.ipynb` ✅
+**类型**：理论论文
+**可实现性**：是（概念性）
+**Notebook**：`01_complexity_dynamics.ipynb` ✅
 
-**Implementation Track**:
-1. Build character-level vocabulary from text
-2. Implement vanilla RNN cell with forward/backward pass
-3. Train on text sequences with teacher forcing
-4. Implement sampling/generation with temperature control
-5. Visualize hidden state activations
+**实现轨道**：
+- 使用细胞自动机演示熵和复杂性增长
+- 实现显示复杂性动力学的简单物理模拟
+- 可视化封闭系统中的熵变化
 
-**What We Built**:
-- Complete vanilla RNN from scratch
-- Character-level text generation
-- Temperature-controlled sampling
-- Hidden state visualization
-- Shakespeare-style text generation
+**我们构建的内容**：
+- Rule 30 细胞自动机模拟
+- 熵的随时间测量
+- 复杂性指标和可视化
+- 不可逆性概念介绍
 
-**Key Concepts**: RNN, Character Modeling, Text Generation, BPTT
+**核心概念**：熵 (Entropy)、复杂性、热力学第二定律、细胞自动机
 
 ---
 
-## 3. Understanding LSTM Networks (Christopher Olah)
+## 2. RNN 的惊人有效性 (The Unreasonable Effectiveness of RNNs) (Andrej Karpathy)
 
-**Type**: LSTM Architecture
-**Implementable**: Yes
-**Notebook**: `03_lstm_understanding.ipynb` ✅
+**类型**：字符级语言模型
+**可实现性**：是
+**Notebook**：`02_char_rnn_karpathy.ipynb` ✅
 
-**Implementation Track**:
-1. Implement LSTM cell (forget, input, output gates)
-2. Build forward pass with gate computations
-3. Implement backpropagation through time (BPTT)
-4. Compare vanilla RNN vs LSTM on sequence tasks
-5. Visualize gate activations over time
+**实现轨道**：
+1. 从文本构建字符级词汇表
+2. 实现带前向/后向传播的普通 RNN 单元
+3. 使用教师强制在文本序列上训练
+4. 实现带温度控制的采样/生成
+5. 可视化隐藏状态激活
 
-**What We Built**:
-- Complete LSTM implementation with all gates
-- Forget, input, output gate mechanisms
-- Cell state and hidden state tracking
-- Comparison with vanilla RNN on long sequences
-- Gate activation visualizations
+**我们构建的内容**：
+- 从零完整的普通 RNN
+- 字符级文本生成
+- 温度控制采样
+- 隐藏状态可视化
+- 莎士比亚风格文本生成
 
-**Key Concepts**: LSTM, Gates, Long-term Dependencies, Gradient Flow
+**核心概念**：RNN、字符建模、文本生成、BPTT
+
+---
+
+## 3. 理解 LSTM 网络 (Understanding LSTM Networks) (Christopher Olah)
+
+**类型**：LSTM 架构
+**可实现性**：是
+**Notebook**：`03_lstm_understanding.ipynb` ✅
+
+**实现轨道**：
+1. 实现 LSTM 单元（遗忘、输入、输出门）
+2. 构建带门计算的前向传播
+3. 实现通过时间的反向传播 (BPTT)
+4. 在序列任务上比较普通 RNN vs LSTM
+5. 可视化门控激活随时间变化
+
+**我们构建的内容**：
+- 带所有门的完整 LSTM 实现
+- 遗忘、输入、输出门机制
+- 细胞状态和隐藏状态跟踪
+- 在长序列上与普通 RNN 的比较
+- 门控激活可视化
+
+**核心概念**：LSTM、门控 (Gates)、长期依赖、梯度流
 
 ---
 
@@ -651,50 +651,50 @@ All implementations use NumPy-only code with synthetic data for immediate execut
 
 ---
 
-## Summary Statistics
+## 统计摘要
 
-**Total Papers: 30/30 (100% Complete!)** 🎉
+**总论文数：30/30 (100% 完成！)** 🎉
 
-- **Fully Implemented**: 30 papers
-- **Pure NumPy**: All implementations
-- **Synthetic Data**: All notebooks run immediately
-- **Total Lines of Code**: ~50,000+ educational code
+- **完全实现**：30 篇论文
+- **纯 NumPy**：所有实现
+- **合成数据**：所有 notebook 可立即运行
+- **总代码行数**：~50,000+ 行教育代码
 
-## Implementation Difficulty Levels
+## 实现难度级别
 
-**Beginner** (straightforward, afternoon projects):
-- 2 (Char RNN), 4 (RNN Regularization), 5 (Pruning), 7 (AlexNet), 10 (ResNet), 15 (Pre-activation ResNet), 17 (VAE), 21 (CTC)
+**初学者**（简单，下午项目）：
+- 2 (字符 RNN)、4 (RNN 正则化)、5 (剪枝)、7 (AlexNet)、10 (ResNet)、15 (预激活 ResNet)、17 (VAE)、21 (CTC)
 
-**Intermediate** (weekend projects):
-- 3 (LSTM), 6 (Pointer Networks), 8 (Seq2Seq for Sets), 11 (Dilated Conv), 12 (GNNs), 14 (Bahdanau Attention), 16 (Relation Networks), 18 (Relational RNN), 22 (Scaling Laws), 27 (Multi-token Prediction), 28 (Dense Retrieval)
+**中级**（周末项目）：
+- 3 (LSTM)、6 (指针网络)、8 (集合的序列到序列)、11 (扩张卷积)、12 (GNN)、14 (Bahdanau 注意力)、16 (关系网络)、18 (关系 RNN)、22 (缩放定律)、27 (多令牌预测)、28 (密集检索)
 
-**Advanced** (week-long deep dives):
-- 9 (GPipe), 13 (Transformer), 20 (NTM), 29 (RAG), 30 (Lost in Middle)
+**高级**（一周深度探索）：
+- 9 (GPipe)、13 (Transformer)、20 (NTM)、29 (RAG)、30 (迷失在中间)
 
-**Comprehensive/Theoretical** (multi-section explorations):
-- 1 (Complexity Dynamics), 19 (Coffee Automaton - 10 sections), 23 (MDL), 24 (Machine Super Intelligence - 6 sections), 25 (Kolmogorov Complexity), 26 (CS231n - 10 sections)
+**综合/理论**（多章节探索）：
+- 1 (复杂性动力学)、19 (咖啡自动机 - 10 章节)、23 (MDL)、24 (机器超级智能 - 6 章节)、25 (Kolmogorov 复杂性)、26 (CS231n - 10 章节)
 
-## Featured Highlights
+## 精选亮点
 
-**Longest Implementations**:
-- Paper 26 (CS231n): ~2,400 lines, 10 sections
-- Paper 19 (Coffee Automaton): ~2,500 lines, 10 sections
-- Paper 24 (Machine Super Intelligence): ~2,000 lines, 6 sections
-- Paper 18 (Relational RNN): ~1,100 lines manual backprop section
+**最长实现**：
+- 论文 26 (CS231n)：~2,400 行，10 章节
+- 论文 19 (咖啡自动机)：~2,500 行，10 章节
+- 论文 24 (机器超级智能)：~2,000 行，6 章节
+- 论文 18 (关系 RNN)：~1,100 行手动反向传播章节
 
-**Most Visualizations**:
-- Paper 24 (Machine Super Intelligence): 15+ plots
-- Paper 19 (Coffee Automaton): 20+ visualizations
-- Paper 26 (CS231n): 15+ visualizations
-- Paper 22 (Scaling Laws): 10+ plots
+**最多可视化**：
+- 论文 24 (机器超级智能)：15+ 个图表
+- 论文 19 (咖啡自动机)：20+ 个可视化
+- 论文 26 (CS231n)：15+ 个可视化
+- 论文 22 (缩放定律)：10+ 个图表
 
-**Theoretical Foundations**:
-- Papers 23, 24, 25: Information theory trilogy (MDL, Universal AI, Kolmogorov)
-- Papers 1, 19: Complexity and irreversibility
-- Paper 22: Empirical scaling laws
+**理论基础**：
+- 论文 23、24、25：信息论三部曲 (MDL、通用 AI、Kolmogorov)
+- 论文 1、19：复杂性和不可逆性
+- 论文 22：经验缩放定律
 
 ---
 
-**"If you really learn all of these, you'll know 90% of what matters today."** - Ilya Sutskever
+**"如果你真的学会了所有这些，你将了解今天 90% 重要的内容。"** - Ilya Sutskever
 
-**All 30 papers now implemented for self-paced learning!** 🚀
+**所有 30 篇论文现已实现以供自主学习！** 🚀
