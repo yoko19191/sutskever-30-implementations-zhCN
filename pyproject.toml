@@ -1,12 +1,13 @@
 [project]
 name = "sutskever-30-implementations-zhcn"
 version = "0.1.0"
-description = "Add your description here"
+description = "Illya Sutskever Top 30 论文清单"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "jupyterlab>=4.5.2",
     "matplotlib>=3.10.8",
+    "networkx>=3.6.1",
     "numpy>=2.4.1",
     "pandas>=2.3.3",
     "plotly>=6.5.2",

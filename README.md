@@ -336,117 +336,117 @@ uv run jupyter notebook 02_char_rnn_karpathy.ipynb
     - **10 个章节覆盖整个 CS231n 课程**
     - 连接论文 #7 (AlexNet)、#10 (ResNet)、#11 (扩张卷积)
 
-## Repository Structure
+## 仓库结构
 
 ```
 sutskever-30-implementations-zhCN/
-├── README.md                           # This file
-├── PROGRESS.md                         # Implementation progress tracking
-├── IMPLEMENTATION_TRACKS.md            # Detailed tracks for all 30 papers
+├── README.md                           # 本文件
+├── PROGRESS.md                         # 实现进度跟踪
+├── IMPLEMENTATION_TRACKS.md            # 所有 30 篇论文的详细跟踪
 │
-├── 01_complexity_dynamics.ipynb        # Entropy & complexity
-├── 02_char_rnn_karpathy.ipynb         # Vanilla RNN
-├── 03_lstm_understanding.ipynb         # LSTM gates
-├── 04_rnn_regularization.ipynb         # Dropout for RNNs
-├── 05_neural_network_pruning.ipynb     # Pruning & MDL
-├── 06_pointer_networks.ipynb           # Attention pointers
-├── 07_alexnet_cnn.ipynb               # CNNs & AlexNet
-├── 08_seq2seq_for_sets.ipynb          # Permutation-invariant sets
-├── 09_gpipe.ipynb                     # Pipeline parallelism
-├── 10_resnet_deep_residual.ipynb      # Residual connections
-├── 11_dilated_convolutions.ipynb       # Multi-scale convolutions
-├── 12_graph_neural_networks.ipynb      # Message passing GNNs
-├── 13_attention_is_all_you_need.ipynb # Transformer architecture
-├── 14_bahdanau_attention.ipynb         # Original attention
-├── 15_identity_mappings_resnet.ipynb   # Pre-activation ResNet
-├── 16_relational_reasoning.ipynb       # Relation networks
+├── 01_complexity_dynamics.ipynb        # 熵与复杂性
+├── 02_char_rnn_karpathy.ipynb         # 基础 RNN
+├── 03_lstm_understanding.ipynb         # LSTM 门控
+├── 04_rnn_regularization.ipynb         # RNN 的丢弃
+├── 05_neural_network_pruning.ipynb     # 剪枝与 MDL
+├── 06_pointer_networks.ipynb           # 注意力指针
+├── 07_alexnet_cnn.ipynb               # CNN 与 AlexNet
+├── 08_seq2seq_for_sets.ipynb          # 排列不变集合
+├── 09_gpipe.ipynb                     # 流水线并行
+├── 10_resnet_deep_residual.ipynb      # 残差连接
+├── 11_dilated_convolutions.ipynb       # 多尺度卷积
+├── 12_graph_neural_networks.ipynb      # 消息传递 GNN
+├── 13_attention_is_all_you_need.ipynb # Transformer 架构
+├── 14_bahdanau_attention.ipynb         # 原始注意力
+├── 15_identity_mappings_resnet.ipynb   # 预激活 ResNet
+├── 16_relational_reasoning.ipynb       # 关系网络
 ├── 17_variational_autoencoder.ipynb   # VAE
-├── 18_relational_rnn.ipynb             # Relational RNN
-├── 19_coffee_automaton.ipynb           # Irreversibility deep dive
-├── 20_neural_turing_machine.ipynb     # External memory
-├── 21_ctc_speech.ipynb                # CTC loss
-├── 22_scaling_laws.ipynb              # Empirical scaling
-├── 23_mdl_principle.ipynb             # MDL & compression
-├── 24_machine_super_intelligence.ipynb # Universal AI & AIXI
-├── 25_kolmogorov_complexity.ipynb     # K(x) & randomness
-├── 26_cs231n_cnn_fundamentals.ipynb    # Vision from first principles
-├── 27_multi_token_prediction.ipynb     # Multi-token prediction
-├── 28_dense_passage_retrieval.ipynb    # Dense retrieval
-├── 29_rag.ipynb                       # RAG architecture
-└── 30_lost_in_middle.ipynb            # Long context analysis
+├── 18_relational_rnn.ipynb             # 关系 RNN
+├── 19_coffee_automaton.ipynb           # 不可逆性深度探索
+├── 20_neural_turing_machine.ipynb     # 外部记忆
+├── 21_ctc_speech.ipynb                # CTC 损失
+├── 22_scaling_laws.ipynb              # 经验缩放
+├── 23_mdl_principle.ipynb             # MDL 与压缩
+├── 24_machine_super_intelligence.ipynb # 通用 AI 与 AIXI
+├── 25_kolmogorov_complexity.ipynb     # K(x) 与随机性
+├── 26_cs231n_cnn_fundamentals.ipynb    # 从第一性原理的视觉
+├── 27_multi_token_prediction.ipynb     # 多令牌预测
+├── 28_dense_passage_retrieval.ipynb    # 密集检索
+├── 29_rag.ipynb                       # RAG 架构
+└── 30_lost_in_middle.ipynb            # 长上下文分析
 ```
 
-**All 30 papers implemented! (100% complete!) 🎉**
+**所有 30 篇论文已实现！（100% 完成！）🎉**
 
-## Learning Path
+## 学习路径
 
-### Beginner Track (Start here!)
+### 初学者路径（从这里开始！）
 
-1. **Character RNN** (`02_char_rnn_karpathy.ipynb`) - Learn basic RNNs
-2. **LSTM** (`03_lstm_understanding.ipynb`) - Understand gating mechanisms
-3. **CNNs** (`07_alexnet_cnn.ipynb`) - Computer vision fundamentals
-4. **ResNet** (`10_resnet_deep_residual.ipynb`) - Skip connections
-5. **VAE** (`17_variational_autoencoder.ipynb`) - Generative models
+1. **字符级 RNN** (`02_char_rnn_karpathy.ipynb`) - 学习基础 RNN
+2. **LSTM** (`03_lstm_understanding.ipynb`) - 理解门控机制
+3. **CNN** (`07_alexnet_cnn.ipynb`) - 计算机视觉基础
+4. **ResNet** (`10_resnet_deep_residual.ipynb`) - 跳跃连接
+5. **VAE** (`17_variational_autoencoder.ipynb`) - 生成模型
 
-### Intermediate Track
+### 中级路径
 
-6. **RNN Regularization** (`04_rnn_regularization.ipynb`) - Better training
-7. **Bahdanau Attention** (`14_bahdanau_attention.ipynb`) - Attention basics
-8. **Pointer Networks** (`06_pointer_networks.ipynb`) - Attention as selection
-9. **Seq2Seq for Sets** (`08_seq2seq_for_sets.ipynb`) - Permutation invariance
-10. **CS231n** (`26_cs231n_cnn_fundamentals.ipynb`) - Complete vision pipeline (kNN → CNNs)
-11. **GPipe** (`09_gpipe.ipynb`) - Pipeline parallelism for large models
-12. **Transformers** (`13_attention_is_all_you_need.ipynb`) - Modern architecture
-13. **Dilated Convolutions** (`11_dilated_convolutions.ipynb`) - Receptive fields
-14. **Scaling Laws** (`22_scaling_laws.ipynb`) - Understanding scale
+6. **RNN 正则化** (`04_rnn_regularization.ipynb`) - 更好的训练
+7. **Bahdanau 注意力** (`14_bahdanau_attention.ipynb`) - 注意力基础
+8. **指针网络** (`06_pointer_networks.ipynb`) - 注意力作为选择
+9. **集合的序列到序列** (`08_seq2seq_for_sets.ipynb`) - 排列不变性
+10. **CS231n** (`26_cs231n_cnn_fundamentals.ipynb`) - 完整视觉流程（kNN → CNN）
+11. **GPipe** (`09_gpipe.ipynb`) - 大模型的流水线并行
+12. **Transformer** (`13_attention_is_all_you_need.ipynb`) - 现代架构
+13. **扩张卷积** (`11_dilated_convolutions.ipynb`) - 感受野
+14. **缩放定律** (`22_scaling_laws.ipynb`) - 理解缩放
 
-### Advanced Track
+### 高级路径
 
-15. **Pre-activation ResNet** (`15_identity_mappings_resnet.ipynb`) - Architecture details
-16. **Graph Neural Networks** (`12_graph_neural_networks.ipynb`) - Graph learning
-17. **Relation Networks** (`16_relational_reasoning.ipynb`) - Relational reasoning
-18. **Neural Turing Machines** (`20_neural_turing_machine.ipynb`) - External memory
-19. **CTC Loss** (`21_ctc_speech.ipynb`) - Speech recognition
-20. **Dense Retrieval** (`28_dense_passage_retrieval.ipynb`) - Semantic search
-21. **RAG** (`29_rag.ipynb`) - Retrieval-augmented generation
-22. **Lost in the Middle** (`30_lost_in_middle.ipynb`) - Long context analysis
+15. **预激活 ResNet** (`15_identity_mappings_resnet.ipynb`) - 架构细节
+16. **图神经网络** (`12_graph_neural_networks.ipynb`) - 图学习
+17. **关系网络** (`16_relational_reasoning.ipynb`) - 关系推理
+18. **神经图灵机** (`20_neural_turing_machine.ipynb`) - 外部记忆
+19. **CTC 损失** (`21_ctc_speech.ipynb`) - 语音识别
+20. **密集检索** (`28_dense_passage_retrieval.ipynb`) - 语义搜索
+21. **RAG** (`29_rag.ipynb`) - 检索增强生成
+22. **迷失在中间** (`30_lost_in_middle.ipynb`) - 长上下文分析
 
-### Theory & Fundamentals
+### 理论与基础
 
-23. **MDL Principle** (`23_mdl_principle.ipynb`) - Model selection via compression
-24. **Kolmogorov Complexity** (`25_kolmogorov_complexity.ipynb`) - Randomness & information
-25. **Complexity Dynamics** (`01_complexity_dynamics.ipynb`) - Entropy & emergence
-26. **Coffee Automaton** (`19_coffee_automaton.ipynb`) - Deep dive into irreversibility
+23. **MDL 原则** (`23_mdl_principle.ipynb`) - 通过压缩进行模型选择
+24. **Kolmogorov 复杂性** (`25_kolmogorov_complexity.ipynb`) - 随机性与信息
+25. **复杂性动力学** (`01_complexity_dynamics.ipynb`) - 熵与涌现
+26. **咖啡自动机** (`19_coffee_automaton.ipynb`) - 不可逆性深度探索
 
-## Key Insights from the Sutskever 30
+## Sutskever 30 的关键洞察
 
-### Architecture Evolution
+### 架构演进
 
-- **RNN → LSTM**: Gating solves vanishing gradients
-- **Plain Networks → ResNet**: Skip connections enable depth
-- **RNN → Transformer**: Attention enables parallelization
-- **Fixed vocab → Pointers**: Output can reference input
+- **RNN → LSTM**：门控解决梯度消失问题
+- **普通网络 → ResNet**：跳跃连接实现深度
+- **RNN → Transformer**：注意力实现并行化
+- **固定词汇表 → 指针**：输出可以引用输入
 
-### Fundamental Mechanisms
+### 基本机制
 
-- **Attention**: Differentiable selection mechanism
-- **Residual Connections**: Gradient highways
-- **Gating**: Learned information flow control
-- **External Memory**: Separate storage from computation
+- **注意力**：可微分的选择机制
+- **残差连接**：梯度高速公路
+- **门控**：学习的信息流控制
+- **外部记忆**：将存储与计算分离
 
-### Training Insights
+### 训练洞察
 
-- **Scaling Laws**: Performance predictably improves with scale
-- **Regularization**: Dropout, weight decay, data augmentation
-- **Optimization**: Gradient clipping, learning rate schedules
-- **Compute-Optimal**: Balance model size and training data
+- **缩放定律**：性能随规模可预测地提升
+- **正则化**：丢弃、权重衰减、数据增强
+- **优化**：梯度裁剪、学习率调度
+- **计算最优**：平衡模型大小和训练数据
 
-### Theoretical Foundations
+### 理论基础
 
-- **Information Theory**: Compression, entropy, MDL
-- **Complexity**: Kolmogorov complexity, power laws
-- **Generative Modeling**: VAE, ELBO, latent spaces
-- **Memory**: Differentiable data structures
+- **信息论**：压缩、熵、MDL
+- **复杂性**：Kolmogorov 复杂性、幂律
+- **生成建模**：VAE、ELBO、潜在空间
+- **记忆**：可微分数据结构
 
 ## 实现理念
 
@@ -583,6 +583,18 @@ Sutskever 30 指向：
 - ✅ 完整的 RAG 系统
 - ⚠️ 大规模实验
 - ⚠️ 超参数优化
+
+
+# 分享：第一人称读论文 Prompt
+
+我用这个 Prompt 帮助我读了很多篇文章，希望对你也有帮助。
+
+使用方法就是在任意 Chat 界面上传论文，然后贴上这段 Prompt 
+
+```plaintext
+请你根据这篇文章，请你完全代入研究团队的视角。用第一人称的方法解释这篇文章的逻辑。研究的背景是什么？核心痛点是什么？这一步需要做什么？为什么要这么做？下一步又应该做什么？需要考虑到研发团队当时可能有的疑问和解决思路。输出一篇第一人称的文章，文章包含整篇文章的所有细节。
+```
+
 
 ---
 
